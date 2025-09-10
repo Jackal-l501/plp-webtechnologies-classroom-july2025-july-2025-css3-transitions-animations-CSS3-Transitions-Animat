@@ -1,0 +1,286 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f7fa;
+    padding: 20px;
+}
+
+header, section, footer {
+    margin-bottom: 40px;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* Animation Examples */
+.animation-examples, .function-examples, .combined-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.animation-card, .function-card, .combined-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.animation-card:hover, .function-card:hover, .combined-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Part 1: CSS Animations */
+
+/* Button Hover Effect */
+.btn-hover-effect {
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-hover-effect:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Continuous Animation */
+.continuous-animation {
+    font-size: 2rem;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Transform on Hover */
+.transform-box {
+    width: 100px;
+    height: 100px;
+    background: #e74c3c;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+}
+
+.transform-box:hover {
+    transform: rotate(15deg) skew(5deg) translateX(10px);
+    background: #c0392b;
+}
+
+/* Part 2: JavaScript Functions Section */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+input, button {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background: #2ecc71;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #27ae60;
+}
+
+/* Part 3: Combined Animations */
+
+/* Animated Box */
+.box {
+    width: 100px;
+    height: 100px;
+    background: #9b59b6;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+}
+
+.box.animated {
+    animation: moveAndColor 1.5s forwards;
+}
+
+@keyframes moveAndColor {
+    0% {
+        transform: translateX(0);
+        background: #9b59b6;
+    }
+    50% {
+        transform: translateX(100px) scale(1.2);
+        background: #3498db;
+    }
+    100% {
+        transform: translateX(0) scale(1);
+        background: #2ecc71;
+    }
+}
+
+/* Card Flip */
+.flip-container {
+    perspective: 1000px;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.flip-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.flip-card-front {
+    background: #f1c40f;
+    color: #34495e;
+}
+
+.flip-card-back {
+    background: #34495e;
+    color: #f1c40f;
+    transform: rotateY(180deg);
+}
+
+/* Loading Animation */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.loading.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    animation: fadeIn 0.3s;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    animation: slideIn 0.5s;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
